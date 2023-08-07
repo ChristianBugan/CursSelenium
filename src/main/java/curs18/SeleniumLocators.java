@@ -95,4 +95,42 @@ public class SeleniumLocators extends BaseTest {
 		assertTrue(commentBox.isDisplayed());
 	}
 	
+	@Test(priority=6)
+	public void nameLocator() {
+		WebElement commentBox = driver.findElement(By.name("comment"));
+		commentBox.sendKeys("My comment");
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+	    jse.executeScript("arguments[0].setAttribute('style', 'border: 4px solid red')", commentBox);
+	}
+	
+	@Test(priority=7)
+	public void cssSelectorLocator() {
+		
+		WebElement authorBox = driver.findElement(By.cssSelector("input[name=\"author\"]"));
+		authorBox.sendKeys("Cristiano Ronaldo");
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+	    jse.executeScript("arguments[0].setAttribute('style', 'border: 4px solid red')", authorBox);
+	}
+	
+	/**
+	 * XPATH -->  //input[@type='email']
+	 * CSS   -->  input[type='email']
+	 * 
+	 * 
+	 */
+	
+	@Test(priority=8)
+	public void xpathLocator() {
+		
+
+		WebElement emailBox = driver.findElement(By.xpath("//input[@type='email']"));
+		emailBox.sendKeys("CristianoRonaldo@Gmail.com");
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+	    jse.executeScript("arguments[0].setAttribute('style', 'border: 4px solid red')", emailBox);
+		
+	}
+	
 }
