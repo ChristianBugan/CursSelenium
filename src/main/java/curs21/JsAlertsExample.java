@@ -51,7 +51,7 @@ public class JsAlertsExample extends BaseTest{
 		WebElement result =  driver.findElement(By.cssSelector("p[id='result']"));
 		assertEquals(result.getText(), "You entered: Text");	
 		System.out.println("Ai introdus textul" + result.getText());
-		Thread.sleep(5000);
+		
 	}
 
 }

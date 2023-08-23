@@ -48,7 +48,7 @@ public class SeleniumLocators extends BaseTest {
 		//<a href="https://keybooks.ro/shop/">Books</a>
 		//                                     |
 		
-		driver.findElement(By.linkText("BOOKS")).click();;
+		driver.findElement(By.linkText("BOOKS")).click();
 		assertEquals(driver.getCurrentUrl(), "https://keybooks.ro/shop/");
 	}
 	
