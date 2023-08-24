@@ -71,10 +71,10 @@ public class ProblemaAboutMe extends BaseTest {
 		WebElement updateCart = driver.findElement(By.cssSelector("button.button[name='update_cart']"));
 		updateCart.click(); 
 		
-		String expectedText = "Cart updated";
-		String actualText = driver.findElement(By.cssSelector("div.woocommerce-message")).getText();
+		String expectedText2 = "Cart updated";
+		String actualText2 = driver.findElement(By.cssSelector("div.woocommerce-message")).getText();
 		
-		assertTrue(actualText.contains(expectedText));
+		assertTrue(actualText2.contains(expectedText2));
 		
 		WebElement proceedCheckout = driver.findElement
 				(By.cssSelector("a.checkout-button.button.alt.wc-forward[href='https://keybooks.ro/checkout/']"));
@@ -85,7 +85,20 @@ public class ProblemaAboutMe extends BaseTest {
 		
 		assertTrue(currentURL.equals(expectedURL));
 		
+		// Billing details - div[class='woocommerce-billing-fields']>h3
 		
+		String expectedText3 = "Billing details";
+		String actualText3 = driver.findElement(By.cssSelector("div[class='woocommerce-billing-fields']>h3")).getText();
+		
+		assertTrue(actualText3.contains(expectedText3));
+		
+		//woocommerce-additional-fields
+		
+		String expectedText4 = "Additional information";
+		String actualText4 = driver.findElement(By.cssSelector("div[class='woocommerce-additional-fields']>h3")).getText();
+		
+		assertTrue(actualText4.contains(expectedText4));
+	
 		}
 		
 		
