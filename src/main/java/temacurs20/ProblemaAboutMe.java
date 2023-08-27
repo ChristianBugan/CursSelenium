@@ -2,8 +2,11 @@ package temacurs20;
 
 import static org.testng.Assert.assertTrue;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -27,8 +30,30 @@ public class ProblemaAboutMe extends BaseTest {
 		
 		WebElement loadMore = driver.findElement(By.cssSelector(".theme_button"));
 		loadMore.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		loadMore.click();
+		
+	      // while(loadMore.isDisplayed()) {
+
+	           //am pus in try catch pentru ca atunci cand ajunge la ultima pagina si nu mai exista butonul
+
+	           //sa nu crape, ci sa prinda exceptia pe catch si sa treaca mai departe 
+
+	          //   try{
+
+	                 // loadMore.click();
+
+	                // WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	                // wait.until(ExpectedConditions.elementToBeClickable(loadMore));
+
+	           //  }catch(Exception e) {
+
+	                 
+
+	            // }
+
+	      //}
 		
 		WebElement bookClick = driver.findElement(By.cssSelector("a.hover_icon[href=\"https://keybooks.ro/shop/the-story-about-me/\"]"));
 		bookClick.click();
@@ -80,10 +105,10 @@ public class ProblemaAboutMe extends BaseTest {
 				(By.cssSelector("a.checkout-button.button.alt.wc-forward[href='https://keybooks.ro/checkout/']"));
 		proceedCheckout.click();
 		
-		String currentURL = driver.getCurrentUrl();
-		String expectedURL = "https://keybooks.ro/checkout/";
+		String currentURL2 = driver.getCurrentUrl();
+		String expectedURL2 = "https://keybooks.ro/checkout/";
 		
-		assertTrue(currentURL.equals(expectedURL));
+		assertTrue(currentURL2.equals(expectedURL2));
 		
 		// Billing details - div[class='woocommerce-billing-fields']>h3
 		
