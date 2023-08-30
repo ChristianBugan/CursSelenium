@@ -7,6 +7,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -29,31 +30,31 @@ public class ProblemaAboutMe extends BaseTest {
 		searchButton.click();
 		
 		WebElement loadMore = driver.findElement(By.cssSelector(".theme_button"));
-		loadMore.click();
+		//loadMore.click();
 		Thread.sleep(3000);
-		loadMore.click();
+		//loadMore.click();
 		
-	      // while(loadMore.isDisplayed()) {
+	     while(loadMore.isDisplayed()) {
 
 	           //am pus in try catch pentru ca atunci cand ajunge la ultima pagina si nu mai exista butonul
 
 	           //sa nu crape, ci sa prinda exceptia pe catch si sa treaca mai departe 
 
-	          //   try{
+	            try{
 
-	                 // loadMore.click();
+	                  loadMore.click();
 
-	                // WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(10));
+	                 WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(10));
 
-	                // wait.until(ExpectedConditions.elementToBeClickable(loadMore));
+	                 wait.until(ExpectedConditions.elementToBeClickable(loadMore));
 
-	           //  }catch(Exception e) {
+	            }catch(Exception e) {
 
 	                 
 
-	            // }
+	             }
 
-	      //}
+	      }
 		
 		WebElement bookClick = driver.findElement(By.cssSelector("a.hover_icon[href=\"https://keybooks.ro/shop/the-story-about-me/\"]"));
 		bookClick.click();

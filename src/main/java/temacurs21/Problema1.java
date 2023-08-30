@@ -1,6 +1,7 @@
 package temacurs21;
 
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -42,7 +43,7 @@ public class Problema1 extends BaseTest{
 			driver.findElement(By.cssSelector("a.star-4")).click();
 			
 			WebElement yourReview = driver.findElement(By.cssSelector("textarea#comment[name='comment']"));
-			yourReview.sendKeys("Review bun. Cristi");
+			yourReview.sendKeys("Review bun de totttt. Cristi");
 			
 			WebElement nume = driver.findElement(By.cssSelector("input#author[name='author'][type='text']"));
 			nume.sendKeys("Cristian");
@@ -58,7 +59,12 @@ public class Problema1 extends BaseTest{
 			
 			driver.findElement(By.cssSelector("input#submit[type='submit']")).click();
 			
-			Thread.sleep(2000);
+			Thread.sleep(3000);
+			
+			WebElement approvalText = driver.findElement(By.cssSelector("em[class='woocommerce-review__awaiting-approval']"));
+
+			assertEquals(approvalText.getText(), "Your review is awaiting approval");
+			
 			
 			
 			
